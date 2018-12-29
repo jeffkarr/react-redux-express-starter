@@ -7,14 +7,18 @@
     "client-install": "cd client && npm install",
     "start": "node server.js",
     "server": "node server.js",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "author": "Brad Traversy & Gregory Assasie",
   "license": "MIT",
-  "devDependencies": {},
-  "dependencies": {
+  "devDependencies": {
     "concurrently": "^3.5.1",
+    "nodemon": "^1.14.7"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.2",
     "nodemon": "^1.14.7"
   }
